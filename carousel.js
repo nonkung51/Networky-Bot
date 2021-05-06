@@ -13,10 +13,10 @@ module.exports.carousel = {
 						{
 							type: 'image',
 							url:
-								'https://www.khaosodenglish.com/wp-content/uploads/2019/06/AP19157246924854.jpg',
+								'https://github.com/nonkung51/Networky-Bot/blob/main/assets/I.png?raw=true',
 							size: 'full',
 							aspectMode: 'cover',
-							aspectRatio: '2:3',
+							aspectRatio: '1:1',
 							gravity: 'top',
 							action: {
 								type: 'message',
@@ -37,10 +37,10 @@ module.exports.carousel = {
 						{
 							type: 'image',
 							url:
-								'https://static.bangkokpost.com/media/content/20181227/c1_1601718.jpg',
+								'https://github.com/nonkung51/Networky-Bot/blob/main/assets/II.png?raw=true',
 							size: 'full',
 							aspectMode: 'cover',
-							aspectRatio: '2:3',
+							aspectRatio: '1:1',
 							gravity: 'top',
 							action: {
 								type: 'message',
@@ -61,10 +61,34 @@ module.exports.carousel = {
 						{
 							type: 'image',
 							url:
-								'https://www.brighttv.co.th/wp-content/uploads/2020/02/Tammanus-Drug-trafficking.jpg.webp',
+								'https://github.com/nonkung51/Networky-Bot/blob/main/assets/III.png?raw=true',
 							size: 'full',
 							aspectMode: 'cover',
-							aspectRatio: '2:3',
+							aspectRatio: '1:1',
+							gravity: 'top',
+							action: {
+								type: 'message',
+								label: 'action',
+								text: 'แป้ง!!',
+							},
+						},
+					],
+					paddingAll: '0px',
+				},
+			},
+			{
+				type: 'bubble',
+				body: {
+					type: 'box',
+					layout: 'vertical',
+					contents: [
+						{
+							type: 'image',
+							url:
+								'https://github.com/nonkung51/Networky-Bot/blob/main/assets/IV.png?raw=true',
+							size: 'full',
+							aspectMode: 'cover',
+							aspectRatio: '1:1',
 							gravity: 'top',
 							action: {
 								type: 'message',
