@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const reply = require('./reply');
 const push = require('./push');
 
+const { carousel } = require('./carousel');
+
 const app = express();
 const port = process.env.PORT || 4000;
 
@@ -13,13 +15,39 @@ app.use(bodyParser.json());
 app.post('/webhook', (req, res) => {
 	let replyToken = req.body.events[0].replyToken;
 	let userId = req.body.events[0].source.userId;
-	let msg = req.body.events[0].message.text;
 	let event = req.body.events[0];
 
-	console.log('event:', event)
-	
-	reply(replyToken, { type: 'text', text: msg });
-	push(userId, { type: 'text', text: 'push!' });
+	console.log('event:', event);
+
+	if (event.type == 'message') {
+		switch (event.message.text) {
+			case 'Flow ทั้งหมด':
+				push(userId, carousel);
+				break;
+			case 'ประยุทธ์':
+				push(userId, { type: 'text', text: 'ข้อมูลประยุทธ์ 1' });
+				push(userId, { type: 'text', text: 'ข้อมูลประยุทธ์ 2' });
+				break;
+			case 'ประวิทย์':
+				push(userId, { type: 'text', text: 'ข้อมูลประวิทย์ 1' });
+				push(userId, { type: 'text', text: 'ข้อมูลประวิทย์ 2' });
+				break;
+			case 'แป้ง!!':
+				push(userId, { type: 'text', text: 'มันคือแป้ง!! 1' });
+				push(userId, { type: 'text', text: 'มันคือแป้ง!! 2' });
+				break;
+			default:
+				reply(replyToken, {
+					type: 'text',
+					text: 'น้อง Networky ไม่เข้าใจคำถามของคุณ ;-;',
+				});
+		}
+	} else if (event.type == 'follow') {
+		push(userId, carousel);
+	}
+
+	// reply(replyToken, { type: 'text', text: msg });
+	// push(userId, carousel);
 	res.sendStatus(200);
 });
 
