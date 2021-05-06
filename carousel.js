@@ -21,7 +21,7 @@ module.exports.carousel = {
 							action: {
 								type: 'message',
 								label: 'action',
-								text: 'ประยุทธ์',
+								text: 'เริ่มต้น',
 							},
 						},
 					],
@@ -45,7 +45,7 @@ module.exports.carousel = {
 							action: {
 								type: 'message',
 								label: 'action',
-								text: 'ประวิทย์',
+								text: 'DNS คืออะไร?',
 							},
 						},
 					],
@@ -69,7 +69,7 @@ module.exports.carousel = {
 							action: {
 								type: 'message',
 								label: 'action',
-								text: 'แป้ง!!',
+								text: 'TCP คืออะไร?',
 							},
 						},
 					],
@@ -93,7 +93,55 @@ module.exports.carousel = {
 							action: {
 								type: 'message',
 								label: 'action',
-								text: 'แป้ง!!',
+								text: 'Fragmentation คืออะไร?',
+							},
+						},
+					],
+					paddingAll: '0px',
+				},
+			},
+			{
+				type: 'bubble',
+				body: {
+					type: 'box',
+					layout: 'vertical',
+					contents: [
+						{
+							type: 'image',
+							url:
+								'https://github.com/nonkung51/Networky-Bot/blob/main/assets/V.png?raw=true',
+							size: 'full',
+							aspectMode: 'cover',
+							aspectRatio: '1:1',
+							gravity: 'top',
+							action: {
+								type: 'message',
+								label: 'action',
+								text: 'HTTP คืออะไร?',
+							},
+						},
+					],
+					paddingAll: '0px',
+				},
+			},
+			{
+				type: 'bubble',
+				body: {
+					type: 'box',
+					layout: 'vertical',
+					contents: [
+						{
+							type: 'image',
+							url:
+								'https://github.com/nonkung51/Networky-Bot/blob/main/assets/VI.png?raw=true',
+							size: 'full',
+							aspectMode: 'cover',
+							aspectRatio: '1:1',
+							gravity: 'top',
+							action: {
+								type: 'message',
+								label: 'action',
+								text: 'ARP คืออะไร?',
 							},
 						},
 					],
