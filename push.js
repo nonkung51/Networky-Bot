@@ -7,8 +7,8 @@ const LINE_HEADER = {
 	Authorization: `Bearer ${MESSAGING_API_KEY}`,
 };
 
-const push = (to, messages) => {
-	return fetch(`${LINE_MESSAGING_API}/push`, {
+const push = async (to, messages) => {
+	await fetch(`${LINE_MESSAGING_API}/push`, {
 		method: 'post',
 		headers: LINE_HEADER,
 		body: JSON.stringify({

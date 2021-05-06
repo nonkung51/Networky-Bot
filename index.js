@@ -12,7 +12,7 @@ const port = process.env.PORT || 4000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/webhook', (req, res) => {
+app.post('/webhook', async (req, res) => {
 	let replyToken = req.body.events[0].replyToken;
 	let userId = req.body.events[0].source.userId;
 	let event = req.body.events[0];
@@ -22,19 +22,19 @@ app.post('/webhook', (req, res) => {
 	if (event.type == 'message') {
 		switch (event.message.text) {
 			case 'Flow ทั้งหมด':
-				push(userId, carousel);
+				await push(userId, carousel);
 				break;
 			case 'ประยุทธ์':
-				push(userId, { type: 'text', text: 'ข้อมูลประยุทธ์ 1' });
-				push(userId, { type: 'text', text: 'ข้อมูลประยุทธ์ 2' });
+				await push(userId, { type: 'text', text: 'ข้อมูลประยุทธ์ 1' });
+				await push(userId, { type: 'text', text: 'ข้อมูลประยุทธ์ 2' });
 				break;
 			case 'ประวิทย์':
-				push(userId, { type: 'text', text: 'ข้อมูลประวิทย์ 1' });
-				push(userId, { type: 'text', text: 'ข้อมูลประวิทย์ 2' });
+				await push(userId, { type: 'text', text: 'ข้อมูลประวิทย์ 1' });
+				await push(userId, { type: 'text', text: 'ข้อมูลประวิทย์ 2' });
 				break;
 			case 'แป้ง!!':
-				push(userId, { type: 'text', text: 'มันคือแป้ง!! 1' });
-				push(userId, { type: 'text', text: 'มันคือแป้ง!! 2' });
+				await push(userId, { type: 'text', text: 'มันคือแป้ง!! 1' });
+				await push(userId, { type: 'text', text: 'มันคือแป้ง!! 2' });
 				break;
 			default:
 				reply(replyToken, {
@@ -46,8 +46,6 @@ app.post('/webhook', (req, res) => {
 		push(userId, carousel);
 	}
 
-	// reply(replyToken, { type: 'text', text: msg });
-	// push(userId, carousel);
 	res.sendStatus(200);
 });
 
