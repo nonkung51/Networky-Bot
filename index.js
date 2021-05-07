@@ -153,7 +153,14 @@ app.post('/webhook', async (req, res) => {
 		await push(userId, carousel);
 	}
 
-	res.sendStatus(200);
+	res.send(200).send({
+		messages: [
+			{
+				type: 'text',
+				text: 'ลองดูคลิปนี้ดูสิ https://youtu.be/AuNWaSYB4zg :-D',
+			},
+		],
+	});
 });
 
 app.listen(port);
